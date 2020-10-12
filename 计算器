@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DesignModel
+{
+   public class Program
+    {
+       public static void Main(string[] args)
+        {
+            #region  计算器
+
+            try
+            {
+                Console.WriteLine("请输入数字A:");
+                string NumberA = Console.ReadLine();
+                Console.WriteLine("请选择运算(+ - * /)");
+                string strOption = Console.ReadLine();
+                  Console.WriteLine("请输入数字B:");
+                string NumberB = Console.ReadLine();
+                string Result = "";
+                switch (strOption)
+                {
+                    case "+":
+                        Result =Convert.ToString( Convert.ToInt32( NumberA )+ Convert.ToInt32( NumberB));
+                        break;
+                    case "-":
+                        Result = Convert.ToString(Convert.ToInt32(NumberA) - Convert.ToInt32(NumberB));
+                        break;
+                    case "*":
+                         Result = Convert.ToString(Convert.ToInt32(NumberA)* Convert.ToInt32(NumberB));
+                        break;
+                    case "/":
+                        //三目运算
+                      NumberB=  NumberB != "0" ? Result = Convert.ToString(Convert.ToInt32(NumberA) / Convert.ToInt32(NumberB)) : Result = "除数不能是0";
+
+                        break;
+
+                }
+                Console.WriteLine("结果是:"+Result);
+                Console.ReadLine();
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
+            #endregion
+
+        }
+    }
+}
